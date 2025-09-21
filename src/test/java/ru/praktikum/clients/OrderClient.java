@@ -1,56 +1,53 @@
 package ru.praktikum.clients;
 
 import io.qameta.allure.Step;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
+import ru.praktikum.constants.Endpoints;
 import ru.praktikum.models.Order;
 
-import static io.restassured.RestAssured.given;
-
-public class OrderClient {
-    private static final String BASE_URL = "http://qa-scooter.praktikum-services.ru";
-
+/**
+ * Клиент для работы с API заказов
+ * ИСПРАВЛЕНИЕ:
+ * Наследуется от BaseClient для использования общих настроек
+ * Использует константы из Endpoints вместо хардкода путей
+ */
+public class OrderClient extends BaseClient {
     @Step("Создание заказа")
     public Response create(Order order) {
-        return given()
-                .filter(new AllureRestAssured())
-                .header("Content-type", "application/json")
-                .baseUri(BASE_URL)
+        return getBaseSpec()
                 .body(order)
                 .when()
-                .post("/api/v1/orders");
-
+                .post(Endpoints.ORDERS);
     }
 
     @Step("Получение списка заказов")
     public Response getOrders() {
-        return given()
-                .filter(new AllureRestAssured())
-                .header("Content-type", "application/json")
-                .baseUri(BASE_URL)
+        return getBaseSpec()
                 .when()
-                .get("/api/v1/orders");
+                .get(Endpoints.ORDERS);
     }
 
     @Step("Принятие заказа")
     public Response acceptOrder(int orderId, int courierId) {
-        return given()
-                .filter(new AllureRestAssured())
-                .header("Content-type", "application/json")
-                .baseUri(BASE_URL)
+        return getBaseSpec()
                 .queryParam("courierId", courierId)
                 .when()
-                .put("/api/v1/orders/accept/" + orderId);
+                .put(Endpoints.ACCEPT_ORDER + orderId);
     }
 
     @Step("Получение заказа по номеру")
     public Response getOrderByTrack(int track) {
-        return given()
-                .filter(new AllureRestAssured())
-                .header("Content-type", "application/json")
-                .baseUri(BASE_URL)
+        return getBaseSpec()
                 .queryParam("t", track)
                 .when()
-                .get("/api/v1/orders/track");
+                .get(Endpoints.TRACK_ORDER);
+    }
+
+    @Step("Отмена заказа")
+    public void cancelOrder(int track) {
+        getBaseSpec()
+                .body("{\"track\": " + track + "}")
+                .when()
+                .put("/api/v1/orders/cancel");
     }
 }

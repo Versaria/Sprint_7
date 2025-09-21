@@ -1,20 +1,17 @@
 package ru.praktikum.models;
 
-@SuppressWarnings("unused")
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+/**
+ * Модель учетных данных курьера
+ * ИСПРАВЛЕНИЕ:
+ * Использованы аннотации Lombok @Data и @AllArgsConstructor
+ * Автоматически генерирует геттеры, сеттеры, equals, hashCode и конструктор со всеми полями
+ */
+@Data
+@AllArgsConstructor
 public class CourierCredentials {
-    private final String login;
-    private final String password;
-
-    public CourierCredentials(String login, String password) {
-        this.login = login;
-        this.password = password;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
+    private String login;
+    private String password;
 }
