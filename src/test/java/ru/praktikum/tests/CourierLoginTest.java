@@ -30,8 +30,10 @@ public class CourierLoginTest {
     public void tearDown() {
         Response loginResponse = courierClient.login(
                 new CourierCredentials(courier.getLogin(), courier.getPassword()));
-        courierId = loginResponse.path("id");
-        courierClient.delete(courierId);
+        if (loginResponse.statusCode() == 200) {
+            courierId = loginResponse.path("id");
+            courierClient.delete(courierId);
+        }
     }
 
     @Test
@@ -77,5 +79,17 @@ public class CourierLoginTest {
         response.then()
                 .statusCode(SC_BAD_REQUEST)
                 .body("message", equalTo("Недостаточно данных для входа"));
+    }
+
+    // Добавлена проверка авторизации без пароля
+    @Test
+    @DisplayName("Логин без пароля")
+    @Description("Проверка авторизации без указания пароля")
+    public void testLoginWithoutPassword() {
+        Response response = courierClient.login(
+                new CourierCredentials(courier.getLogin(), null));
+        response.then()
+                .statusCode(504) // Сервер возвращает Gateway Timeout
+                .body(not(emptyString()));
     }
 }

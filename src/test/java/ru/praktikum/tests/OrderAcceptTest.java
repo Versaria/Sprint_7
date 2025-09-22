@@ -51,6 +51,7 @@ public class OrderAcceptTest {
                 DataGenerator.getRandomColor()
         );
         Response orderResponse = orderClient.create(order);
+        orderResponse.then().statusCode(SC_CREATED); // Проверяем успешное создание
         track = orderResponse.path("track");
     }
 
@@ -69,6 +70,7 @@ public class OrderAcceptTest {
     @Description("Проверка принятия заказа курьером")
     public void testAcceptOrderSuccess() {
         Response orderResponse = orderClient.getOrderByTrack(track);
+        orderResponse.then().statusCode(SC_OK); // Проверяем успешное получение заказа
         int orderId = orderResponse.path("order.id");
 
         Response response = orderClient.acceptOrder(orderId, courierId);
@@ -82,6 +84,7 @@ public class OrderAcceptTest {
     @Description("Проверка принятия заказа без указания ID курьера")
     public void testAcceptOrderWithoutCourierId() {
         Response orderResponse = orderClient.getOrderByTrack(track);
+        orderResponse.then().statusCode(SC_OK); // Проверяем успешное получение заказа
         int orderId = orderResponse.path("order.id");
 
         Response response = orderClient.acceptOrder(orderId, 0);
