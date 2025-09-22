@@ -9,6 +9,12 @@ import ru.praktikum.clients.OrderClient;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.Matchers.notNullValue;
 
+/**
+ * Тест для ручки "Получение списка заказов" (GET /api/v1/orders)
+ * Проверяет:
+ * - Код ответа 200 OK
+ * - Наличие непустого списка заказов в теле ответа
+ */
 public class OrderListTest {
     private final OrderClient orderClient = new OrderClient();
 

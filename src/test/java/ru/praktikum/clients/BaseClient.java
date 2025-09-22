@@ -7,10 +7,7 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 
 /**
- * Базовый клиент для API запросов
- * ИСПРАВЛЕНИЕ:
- * Вынесен общий базовый URL и настройки запросов в отдельный класс
- * Устраняет дублирование кода в CourierClient и OrderClient
+ * Базовый класс для REST-клиентов
  */
 public class BaseClient {
     protected static final String BASE_URL = "http://qa-scooter.praktikum-services.ru";

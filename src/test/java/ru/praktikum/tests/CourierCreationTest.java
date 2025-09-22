@@ -15,12 +15,11 @@ import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.*;
 
 /**
- * Переименовано из CourierTest.java -> CourierCreationTest.java
- * Содержит тесты создания курьеров
- * На каждую ручку создан отдельный тестовый класс
- * Добавлены аннотации @Description для всех тестов
- * Используются константы HTTP-статусов вместо числовых значений
- * Логин выполняется в tearDown() даже если тест упал
+ * Тесты для ручки "Создание курьера" (POST /api/v1/courier)
+ * Проверяемые сценарии:
+ * 1. Успешное создание курьера с валидными данными
+ * 2. Запрет создания дубликата курьера
+ * 3. Ошибки при отсутствии обязательных полей (логин, пароль)
  */
 public class CourierCreationTest {
     private CourierClient courierClient;

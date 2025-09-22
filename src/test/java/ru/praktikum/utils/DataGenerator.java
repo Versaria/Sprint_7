@@ -6,9 +6,10 @@ import ru.praktikum.models.Courier;
 import java.util.Locale;
 
 /**
- * Генератор тестовых данных
- * ИСПРАВЛЕНИЕ:
- * Заменена ручная генерация данных на использование JavaFaker
+ * Утилита для генерации тестовых данных
+ * Ключевые особенности:
+ * - Использует JavaFaker для реалистичных данных на русском языке
+ * - Генерирует уникальные данные для каждого теста
  */
 public class DataGenerator {
     private static final Faker faker = new Faker(new Locale("ru"));

@@ -13,6 +13,13 @@ import ru.praktikum.utils.DataGenerator;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.*;
 
+/**
+ * Тесты для ручки "Получить заказ по трек-номеру" (GET /api/v1/orders/track)
+ * Проверяемые сценарии:
+ * 1. Успешный поиск заказа по трек-номеру
+ * 2. Ошибка при отсутствии номера (t=0)
+ * 3. Ошибка для несуществующего заказа
+ */
 public class OrderGetByTrackTest {
     private OrderClient orderClient;
     private int track;

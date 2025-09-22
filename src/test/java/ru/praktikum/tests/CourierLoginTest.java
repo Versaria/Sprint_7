@@ -14,6 +14,14 @@ import ru.praktikum.utils.DataGenerator;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.*;
 
+/**
+ * Тесты для ручки "Логин курьера" (POST /api/v1/courier/login)
+ * Проверяемые сценарии:
+ * 1. Успешная авторизация с валидными данными
+ * 2. Ошибка при неверном пароле
+ * 3. Ошибка для несуществующего пользователя
+ * 4. Ошибка при отсутствии логина/пароля
+ */
 public class CourierLoginTest {
     private CourierClient courierClient;
     private Courier courier;

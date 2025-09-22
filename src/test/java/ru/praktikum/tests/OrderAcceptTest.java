@@ -17,10 +17,15 @@ import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.*;
 
 /**
- * Переименовано из AdditionalTests.java -> OrderAcceptTest.java
  * Содержит тесты принятия заказов курьером
- * На каждую ручку создан отдельный тестовый класс
- * Добавлены аннотации @Description для всех тестов
+ */
+
+/**
+ * Тесты для ручки "Принять заказ" (PUT /api/v1/orders/accept/:id)
+ * Проверяемые сценарии:
+ * 1. Успешное принятие заказа курьером
+ * 2. Ошибка при отсутствии ID курьера
+ * 3. Ошибка для несуществующего заказа
  */
 public class OrderAcceptTest {
     private CourierClient courierClient;

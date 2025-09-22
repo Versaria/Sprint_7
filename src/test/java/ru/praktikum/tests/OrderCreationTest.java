@@ -14,12 +14,16 @@ import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.hamcrest.Matchers.notNullValue;
 
 /**
- * Переименовано из OrderTest.java.java -> OrderCreationTest.java
  * Содержит параметризованные тесты создания заказов
- * На каждую ручку создан отдельный тестовый класс
- * Добавлены аннотации @Description для всех тестов
- * Добавлена отмена заказа после выполнения теста
- * Улучшены имена параметризованных тестов
+ */
+
+/**
+ * Параметризованные тесты для ручки "Создание заказа" (POST /api/v1/orders)
+ * Проверяемые сценарии с разными цветами самоката:
+ * 1. Черный (BLACK)
+ * 2. Серый (GREY)
+ * 3. Оба цвета
+ * 4. Без указания цвета
  */
 @RunWith(Parameterized.class)
 public class OrderCreationTest {

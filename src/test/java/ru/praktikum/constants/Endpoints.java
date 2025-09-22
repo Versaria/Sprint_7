@@ -1,9 +1,7 @@
 package ru.praktikum.constants;
 
 /**
- * Класс для хранения констант с путями API
- * ИСПРАВЛЕНИЕ:
- * Вынесены все пути API в отдельный класс
+ * Концентратор констант с путями API
  */
 public class Endpoints {
     public static final String COURIER = "/api/v1/courier";

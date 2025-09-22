@@ -7,9 +7,6 @@ import ru.praktikum.models.Order;
 
 /**
  * Клиент для работы с API заказов
- * ИСПРАВЛЕНИЕ:
- * Наследуется от BaseClient для использования общих настроек
- * Использует константы из Endpoints вместо хардкода путей
  */
 public class OrderClient extends BaseClient {
     @Step("Создание заказа")

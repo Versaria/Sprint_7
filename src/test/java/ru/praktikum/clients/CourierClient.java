@@ -8,9 +8,6 @@ import ru.praktikum.models.CourierCredentials;
 
 /**
  * Клиент для работы с API курьеров
- * ИСПРАВЛЕНИЕ:
- * Наследуется от BaseClient для использования общих настроек
- * Использует константы из Endpoints вместо хардкода путей
  */
 public class CourierClient extends BaseClient {
     @Step("Создание курьера")

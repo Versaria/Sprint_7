@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Модель заказа
- * ИСПРАВЛЕНИЕ:
- * Использованы аннотации Lombok @Data и @AllArgsConstructor
- * Автоматически генерирует геттеры, сеттеры, equals, hashCode и конструктор со всеми полями
+ * Модели данных заказа с использованием Lombok
  */
 @Data
 @AllArgsConstructor

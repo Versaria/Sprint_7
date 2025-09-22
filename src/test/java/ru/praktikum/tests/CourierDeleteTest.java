@@ -14,6 +14,13 @@ import ru.praktikum.utils.DataGenerator;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.*;
 
+/**
+ * Тесты для ручки "Удаление курьера" (DELETE /api/v1/courier/:id)
+ * Проверяемые сценарии:
+ * 1. Успешное удаление существующего курьера
+ * 2. Ошибка при удалении несуществующего курьера
+ * 3. Ошибка при некорректном ID (0)
+ */
 public class CourierDeleteTest {
     private CourierClient courierClient;
     private int courierId;
