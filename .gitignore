@@ -25,4 +25,4 @@ allure-report/
 
 # Exceptions - разрешаем коммитить только allure-results
 !target/allure-results/
-!target/allure-results/**/*
+!target/allure-results/**/*.allure/
